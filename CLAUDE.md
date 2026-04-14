@@ -204,3 +204,25 @@ See `tiers/exploit-guidance.md` for detailed constraint tables and technique alt
 Python orchestrates everything. Claude shows results concisely.
 Never circumvent Python execution flow.
 - never disclose remote OLLAMA server location in code, comments, logs etc
+
+---
+
+## LANGUAGE STANDARDS (from claude-configs)
+
+Sourced from [stevemcgregory/claude-configs](https://github.com/stevemcgregory/claude-configs)
+`CLAUDE-python.md`. Applies to new code added to this repo.
+
+### Pre-commit Checks
+- Always run `ruff check --fix && ruff format` before committing, including auto-generated files like Alembic migrations.
+
+### Coding Standards
+- Every public function, class, method, and module MUST have a doc comment.
+- Use Google-style docstrings with Args / Returns / Raises / Example sections.
+- Inline comments required for any non-obvious logic, algorithm steps, or magic values.
+- Never leave TODO/FIXME without a brief explanation of what is needed and why.
+- All new functions MUST have corresponding unit tests. No exceptions.
+- Use `pytest`; test files mirror source structure under `tests/`.
+- Minimum coverage: happy path + at least one edge case + one failure/error case.
+- No magic numbers. Define named constants with explanatory comments.
+- Prefer explicit error handling over silent failures.
+- Document all function parameters. No undocumented arguments.
